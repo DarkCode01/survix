@@ -34,7 +34,7 @@
     id={field.name}
   >
     {#each field.options as elementOption (elementOption)}
-      <option value={elementOption.value}>{elementOption.label}</option>
+      <option value={elementOption}>{elementOption}</option>
     {/each}
   </select>
 {/snippet}

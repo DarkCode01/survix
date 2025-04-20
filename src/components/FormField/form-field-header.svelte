@@ -16,7 +16,7 @@
 		fieldPlaceholder: string;
 	}
 
-	let { fieldIndex, displayBorder, onclick, fieldType, fieldLabel, fieldPlaceholder }: Props =
+	let { fieldIndex, displayBorder, onclick, fieldType, fieldLabel = $bindable(), fieldPlaceholder }: Props =
 		$props();
 </script>
 
@@ -31,7 +31,7 @@
 		<span class="text-2xl text-[#3D3D3D]">{fieldIndex + 1}</span>
 		<IconNext style="font-size: 15px; color: #3D3D3D;" />
 	</div>
-	<Input id="{fieldIndex}_label" value={fieldLabel} placeholder={fieldPlaceholder} />
+	<Input id="{fieldIndex}_label" bind:value={fieldLabel} placeholder={fieldPlaceholder} />
   <Select
 		id="{fieldIndex}_type"
 		options={ELEMENTS}

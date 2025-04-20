@@ -81,8 +81,8 @@
 		]}
 	/>
 
-	<div class="h-full w-full bg-[#f7f6f9] relative overflow-y-scroll">
-		<div class="flex flex-col items-center justify-center gap-6 p-6">
+	<div class="h-full w-full bg-[#f7f6f9] relative overflow-y-scroll flex items-center flex-col">
+		<div class="flex flex-col items-center justify-center gap-6 p-6 max-w-[1370px] w-full">
 			<WelcomeField bind:title bind:description />
 
 			<!-- render fields -->

@@ -8,7 +8,7 @@
   }
 
 
-  let { fieldIndex, required }: Props = $props();
+  let { fieldIndex, required = $bindable() }: Props = $props();
 </script>
 
 <div class="flex items-center gap-4 border-t border-t-[#e4e4e4] px-8 py-4">

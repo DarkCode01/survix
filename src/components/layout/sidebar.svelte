@@ -5,7 +5,7 @@
   let { sections }: { sections: Array<{ title: string; elements: Array<FieldElement>}>  }= $props();
 </script>
 
-<div class="w-1/5 shadow-md">
+<div class="w-1/5 shadow-md max-w-[300px]">
   <div class="w-full h-full">
     {#each sections as section (section.title)}
       <h1 class="uppercase px-4 pt-4 text-[#4FB0AE]">

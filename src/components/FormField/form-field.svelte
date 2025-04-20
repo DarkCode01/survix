@@ -2,7 +2,7 @@
 	import { FieldElementId } from '$lib/enums/element-id';
 	import type { Field } from '$lib/types/field';
 
-	import Input from '../Form/input.svelte';
+	import Textarea from '../Form/textarea.svelte';
 	import FormFieldFooter from './form-field-footer.svelte';
 	import FormFieldHeader from './form-field-header.svelte';
 	import FormFieldOptions from './form-field-options.svelte';
@@ -30,7 +30,7 @@
 >
 	<FormFieldHeader
 		displayBorder={show}
-		fieldLabel={label}
+		bind:fieldLabel={label}
 		fieldType={type}
 		fieldPlaceholder={placeholder}
 		{fieldIndex}
@@ -40,10 +40,10 @@
 	{#if show}
 		<div class="flex flex-col gap-4 px-8 py-4">
 			<div class="flex w-full items-center gap-4">
-				<Input
+				<Textarea
 					id="{fieldIndex}_description"
 					placeholder="Description (optional)"
-					value={description}
+					bind:value={description}
 					className="text-lg italic"
 				/>
 			</div>
@@ -53,6 +53,6 @@
 			<FormFieldOptions {fieldIndex} {options} />
 		{/if}
 
-		<FormFieldFooter {fieldIndex} {required} />
+		<FormFieldFooter {fieldIndex} bind:required />
 	{/if}
 </div>
