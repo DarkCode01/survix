@@ -47,6 +47,7 @@
 		"@inlang/paraglide-js": "^2.0.0",
 		"libphonenumber-js": "^1.12.7",
 		"svelte-flags": "^2.0.1",
+		"svelte-modals": "^2.0.1",
 		"svelte-tel-input": "^3.6.0",
 		"unplugin-icons": "^22.1.0"
 	}

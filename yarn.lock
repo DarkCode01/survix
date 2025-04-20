@@ -2571,6 +2571,11 @@ svelte-flags@^2.0.1:
   resolved "https://registry.yarnpkg.com/svelte-flags/-/svelte-flags-2.0.1.tgz#b52c2013379dccca7a65ef6faea355d6f416467f"
   integrity sha512-wxFDMBALryXgupOqjDWpzFHxAQbnGjXp4LL7oDzcZdZQDF2buMnsYxLOdf8Md+WHU+ZJtqR7l2vnkVj6a6Gvcg==
 
+svelte-modals@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/svelte-modals/-/svelte-modals-2.0.1.tgz#f85a760db76e4f9f001710c83fab5d6ecd1f3f6d"
+  integrity sha512-4nGWxveM0eILQnkjmlA7nComRSsCW5QssY9d1qNklZaNlnwnziW5xYqLN3ufjyA0/Cn9oMO4i9+8s8zmlw4IiQ==
+
 svelte-tel-input@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/svelte-tel-input/-/svelte-tel-input-3.6.0.tgz#25c1fa078e16fdc9fb2976508839546df0677bba"

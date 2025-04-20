@@ -1,5 +1,6 @@
 import type { FieldElementId } from './enums/element-id';
 import type { Field } from './types/field';
+import type { FieldOption } from './types/field-option';
 
 const defaultOption = '';
 export const fields: Array<Field> = $state([]);
@@ -55,3 +56,15 @@ export const removeField = (fieldIndex: number) => {
 export const changeFieldType = (fieldIndex: number, type: FieldElementId) => {
 	if (fields[fieldIndex]) fields[fieldIndex].type = type;
 }
+
+export const addBulkValues = ({
+	fieldIndex,
+	values
+}: {
+	fieldIndex: number;
+	values: Array<FieldOption>;
+}) => {
+	if (fields[fieldIndex]) {
+		fields[fieldIndex].options = values;
+	}
+};

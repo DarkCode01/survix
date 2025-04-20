@@ -15,7 +15,7 @@
 </script>
 
 
-<div class="flex flex-col gap-4 px-8 py-4" in:fade={{ duration: 800 }}>
+<div class="flex flex-col gap-4 px-8 py-4 max-h-[500px] overflow-y-auto" in:fade={{ duration: 800 }}>
   <h1 class="text-2xl">Options</h1>
 
   {#each options as option, index (`${index}_${option}`)}
