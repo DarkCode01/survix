@@ -1,0 +1,10 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_world": "Hola, {name} en espanol!",
+	"pages": {
+		"creation": {
+			"title": "Bienvenido a Svelte G3nF0rm!"
+		}
+	},
+	"dd": " dsadasd"
+}

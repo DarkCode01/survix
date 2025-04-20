@@ -1,0 +1,10 @@
+export enum FieldElementId {
+  SHORT_TEXT,
+  LARGE_TEXT,
+  EMAIL,
+  PHONE_NUMBER,
+  RADIO,
+  CHECKBOX,
+  DROPDOWN,
+  WELCOME
+};

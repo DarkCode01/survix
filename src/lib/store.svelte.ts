@@ -1,0 +1,57 @@
+import type { FieldElementId } from './enums/element-id';
+import type { Field } from './types/field';
+
+const defaultOption = '';
+export const fields: Array<Field> = $state([]);
+
+export const addField = (type: FieldElementId) => {
+	fields.push({
+		name: `field_${Math.random() * 100}`,
+		options: [],
+		placeholder: '...',
+		description: '',
+		label: '...',
+		type,
+		index: fields.length,
+		required: false,
+		checked: false,
+		disabled: false
+	});
+
+	console.log($state.snapshot(fields));
+};
+
+export const addOptionToField = (fieldIndex: number) => {
+	if (fields[fieldIndex]) {
+		const oldOptions = fields[fieldIndex].options;
+		fields[fieldIndex].options = [...oldOptions, defaultOption];
+
+		$state.snapshot(fields[fieldIndex].options);
+	}
+};
+
+export const updateOptionByIndex = ({
+	fieldIndex,
+	text,
+	optionIndex
+}: {
+	fieldIndex: number;
+	optionIndex: number;
+	text: string;
+}) => {
+	if (fields[fieldIndex] && fields[fieldIndex].options[optionIndex] !== undefined) {
+		const newOptions = fields[fieldIndex].options;
+
+		newOptions[optionIndex] = text;
+
+		fields[fieldIndex].options = newOptions;
+	}
+};
+
+export const removeField = (fieldIndex: number) => {
+	if (fields[fieldIndex]) fields.splice(fieldIndex, 1);
+};
+
+export const changeFieldType = (fieldIndex: number, type: FieldElementId) => {
+	if (fields[fieldIndex]) fields[fieldIndex].type = type;
+}
