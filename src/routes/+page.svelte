@@ -17,6 +17,10 @@
 
 	let title = $state('Form title');
 	let description = $state('');
+
+	$effect(() => {
+		console.log($state.snapshot(fields))
+	})
 </script>
 
 <!-- panel elements -->

@@ -79,7 +79,7 @@
           ]}>
             {index + 1}
           </span>
-          {option.label}
+          {option}
         </button>
       </div>
     {/each}

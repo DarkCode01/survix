@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { FieldElementId } from '$lib/enums/element-id';
-	import Input from '../Form/input.svelte';
-
+	
 	import { ELEMENTS } from '$lib/constant/elements';
 	import { changeFieldType } from '$lib/store.svelte';
 	import IconNext from '~icons/mdi/arrow-right';
 	import IconDown from '~icons/mdi/chevron-down';
 	import Select from '../Form/select.svelte';
+	import Textarea from '../Form/textarea.svelte';
 
 	interface Props extends Partial<HTMLDivElement> {
 		displayBorder: boolean;
@@ -14,9 +14,10 @@
 		fieldType: FieldElementId;
 		fieldLabel: string;
 		fieldPlaceholder: string;
+		onPreview: () => void;
 	}
 
-	let { fieldIndex, displayBorder, onclick, fieldType, fieldLabel = $bindable(), fieldPlaceholder }: Props =
+	let { fieldIndex, displayBorder, onclick, fieldType, fieldLabel = $bindable(), fieldPlaceholder, onPreview}: Props =
 		$props();
 </script>
 
@@ -28,10 +29,26 @@
 	]}
 >
 	<div class="flex items-center gap-2">
-		<span class="text-2xl text-[#3D3D3D]">{fieldIndex + 1}</span>
+		<span class="text-2xl text-[#3D3D3D]">Q{fieldIndex + 1}</span>
 		<IconNext style="font-size: 15px; color: #3D3D3D;" />
 	</div>
-	<Input id="{fieldIndex}_label" bind:value={fieldLabel} placeholder={fieldPlaceholder} />
+	<Textarea
+		id="{fieldIndex}_label"
+		bind:value={fieldLabel}
+		placeholder={fieldPlaceholder}
+	/>
+	<button
+		class={[
+			'group-hover:opacity-100 opacity-0 flex',
+			'cursor-pointer items-center justify-center',
+			'mr-3 transition-opacity duration-600',
+			'text-[#69aead] px-2 py-1',
+			'hover:bg-[#f0f7f7] rounded',
+		]}
+		onclick={onPreview}
+	>
+		Preview
+	</button>
   <Select
 		id="{fieldIndex}_type"
 		options={ELEMENTS}

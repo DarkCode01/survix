@@ -45,7 +45,7 @@
     </div>
   {:else}
     <div
-      class="options relative top-0"
+      class="options relative top-0 z-100"
       use:clickOutside
       onclick_outside={toggle}
     >
