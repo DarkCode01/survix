@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Input from "../Form/input.svelte";
+	import Textarea from "../Form/textarea.svelte";
 
   let { title = $bindable(), description = $bindable()} = $props();
 </script>
@@ -10,13 +10,13 @@
     'items-center justify-center'
   ]}
 >
-  <Input
+  <Textarea
     bind:value={title}
     placeholder="..."
     className="self-center text-center text-4xl"
   />
   
-  <Input
+  <Textarea
     bind:value={description}
     placeholder="Description (optional)"
     className="self-center text-center text-2xl italic text-[#777777]"

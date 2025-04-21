@@ -16,6 +16,17 @@
 	let title = $state('Form title');
 	let description = $state('');
 
+	const preview = () => {
+		const paylaod = {
+			title,
+			description,
+			fields
+		};	
+		const encrypted = btoa(JSON.stringify(paylaod));
+	
+		window.open(`/preview/${encodeURIComponent(encrypted)}`, '_blank');
+	}
+
 	$effect(() => {
 		console.log($state.snapshot(fields));
 	});
@@ -105,17 +116,6 @@
 			{/each}
 		</div>
 
-		<ButtonPreview
-			onclick={() => {
-				const paylaod = {
-					title,
-					description,
-					fields
-				};
-				const encrypted = btoa(JSON.stringify(paylaod));
-
-				window.open(`/preview/${encodeURIComponent(encrypted)}`, '_blank');
-			}}
-		/>
+		<ButtonPreview onclick={preview} />
 	</div>
 </div>

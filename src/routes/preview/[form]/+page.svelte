@@ -1,6 +1,7 @@
 <script lang="ts">
 	
 	import Preview from '../../../components/Preview/preview.svelte';
+	import Progress from '../../../components/Preview/progress.svelte';
 
 	// Props
 	let { data: formInformation } = $props();
@@ -9,9 +10,13 @@
 	let visible = $state(true);
 	let currentQuestion: number = $state(0);
 	let _prevQuestion: number = $state(-1);
+	let showWelcome = $state(!!formInformation.title);
+	
 	let field = $derived(formInformation.fields[currentQuestion]);
 	let isLast = $derived(currentQuestion === formInformation.fields.length - 1);
-	let showWelcome = $state(!!formInformation.title);
+	let progression = $derived(
+		(currentQuestion / formInformation.fields.length) * 100
+	)
 
 	const nextQuestion = () => {
 		const nextQuestion = currentQuestion + 1;
@@ -44,10 +49,10 @@
 </script>
 
 <div class="relative flex h-full w-full items-center justify-center bg-white p-6">
-	<div class="absolute top-0 h-1 w-full bg-[#4FB0AE]"></div>
+	<Progress value={progression} />
 
 	{#if showWelcome}
-		<div class="flex flex-col items-center gap-10">
+		<div class="flex flex-col items-center gap-10 break-normal max-w-[680px]">
 			<div class="flex w-full flex-col items-center gap-2 text-center">
 				<h1 class="flex items-center gap-2 text-center text-3xl font-normal text-[#3D3D3D]">
 					{formInformation.title}
@@ -74,7 +79,7 @@
 	{#if !showWelcome && visible}
 		<Preview
 			{field}
-			onBack={() => console.log('back')}
+			onBack={prevQuestion}
 			onNext={() => {
 				if (!isLast) {
 					nextQuestion();

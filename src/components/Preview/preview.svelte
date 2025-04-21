@@ -12,7 +12,7 @@
     field: Field;
     onNext?: () => void;
     onBack?: () => void;
-		withoutActions: boolean;
+		withoutActions?: boolean;
   }
 
 	// Props
@@ -20,7 +20,7 @@
     field,
     onBack,
     onNext,
-		withoutActions
+		withoutActions = false
   }: Props = $props();
 </script>
 
