@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { updateOptionByIndex } from '$lib/store.svelte';
+	import { updateOptionByIndex } from '$lib/stores/store.svelte';
 	import type { FieldOption } from '$lib/types/field-option';
 
 	type Props = {

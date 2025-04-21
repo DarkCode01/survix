@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { removeField } from '$lib/store.svelte';
+	import { removeField } from '$lib/stores/store.svelte';
 	import IconTrash from '~icons/mdi/trash-outline';
 
   interface Props extends Partial<HTMLDivElement> {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { addField } from '$lib/store.svelte';
+	import { addField } from '$lib/stores/store.svelte';
 	import type { FieldElement } from '$lib/types/field-element';
   	
   let { sections }: { sections: Array<{ title: string; elements: Array<FieldElement>}>  }= $props();

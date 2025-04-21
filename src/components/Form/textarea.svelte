@@ -1,12 +1,7 @@
 <script lang="ts">
-  let { className = '', placeholder, value = $bindable(), id = '' } = $props();
+	import { resize } from "$lib/utils/resize.svelte";
 
-  const resize = (event: Event) => {
-    const texarea = event.currentTarget as HTMLTextAreaElement;
-    
-    texarea.style.height = 'auto';
-    texarea.style.height = texarea.scrollHeight + 'px';
-  }
+  let { className = '', placeholder, value = $bindable(), id = '' } = $props();
 </script>
 
 <div class="w-full m-0 items-center flex" id="wrapper_{id}">

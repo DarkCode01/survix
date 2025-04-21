@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { addBulkValues } from "$lib/store.svelte";
+	import { addBulkValues } from "$lib/stores/store.svelte";
 
   const {
     // provided by <Modals />

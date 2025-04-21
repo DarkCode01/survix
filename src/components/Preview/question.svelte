@@ -6,10 +6,10 @@
   let { ...field }: Props = $props();
 </script>
 
-<div class="flex w-full flex-col gap-2">
+<div class="flex w-full flex-col gap-2 mb-4">
   <label
     for={field.name}
-    class="flex items-center gap-2 text-3xl font-normal text-[#3D3D3D]"
+    class="flex items-center gap-2 text-3xl font-light text-[#3D3D3D]"
   >
     {field.label}
 

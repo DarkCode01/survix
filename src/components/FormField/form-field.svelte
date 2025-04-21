@@ -3,9 +3,10 @@
 	import type { Field } from '$lib/types/field';
 	import { modals } from 'svelte-modals';
 
-	import { fields } from '$lib/store.svelte';
+	import { fields } from '$lib/stores/store.svelte';
 	import Textarea from '../Form/textarea.svelte';
 	import ModalPreview from '../Modal/modal-preview.svelte';
+	import FormFieldAttributes from './form-field-attributes.svelte';
 	import FormFieldFooter from './form-field-footer.svelte';
 	import FormFieldHeader from './form-field-header.svelte';
 	import FormFieldOptions from './form-field-options.svelte';
@@ -15,7 +16,7 @@
 		type = $bindable(),
 		required = $bindable(),
 		description = $bindable(),
-		placeholder,
+		placeholder = $bindable(),
 		options,
 		index: fieldIndex
 	}: Field = $props();
@@ -60,7 +61,11 @@
 			</div>
 		</div>
 
-		{#if [FieldElementId.CHECKBOX, FieldElementId.DROPDOWN].includes(type)}
+		{#if type === FieldElementId.CHECKBOX}
+			<FormFieldAttributes {fieldIndex} bind:placeholder />
+		{/if}
+
+		{#if [FieldElementId.MULTI_SELECT, FieldElementId.DROPDOWN].includes(type)}
 			<FormFieldOptions {fieldIndex} {options} />
 		{/if}
 

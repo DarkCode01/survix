@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { addOptionToField, fields } from '$lib/store.svelte';
+	import { addOptionToField, fields } from '$lib/stores/store.svelte';
 	import { modals } from 'svelte-modals';
 	import IconAdd from '~icons/mdi/add-circle-outline';
 	import IconBulk from '~icons/mdi/list-box-outline';

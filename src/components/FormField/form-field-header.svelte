@@ -2,7 +2,7 @@
 	import type { FieldElementId } from '$lib/enums/element-id';
 	
 	import { ELEMENTS } from '$lib/constant/elements';
-	import { changeFieldType } from '$lib/store.svelte';
+	import { changeFieldType } from '$lib/stores/store.svelte';
 	import IconNext from '~icons/mdi/arrow-right';
 	import IconDown from '~icons/mdi/chevron-down';
 	import Select from '../Form/select.svelte';

@@ -40,7 +40,7 @@
         <IconTimes style="font-size: 25px; color: #777777;" />
       </button>
 
-      <div class="flex items-center justify-center h-full">
+      <div class="flex items-center justify-center h-full overflow-y-auto">
         <Preview
           {field}
           withoutActions={true}

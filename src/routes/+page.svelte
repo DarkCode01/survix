@@ -2,14 +2,12 @@
 	import IconCheckbox from '~icons/mdi/checkbox-outline';
 	import IconDown from '~icons/mdi/chevron-down';
 	import IconEmail from '~icons/mdi/email-outline';
-
 	import IconPhone from '~icons/mdi/phone-outline';
 	import IconRadio from '~icons/mdi/radiobox-blank';
-	import IconSlide from '~icons/mdi/slideshow';
 	import IconText from '~icons/mdi/text';
 
 	import { FieldElementId } from '$lib/enums/element-id';
-	import { fields } from '$lib/store.svelte';
+	import { fields } from '$lib/stores/store.svelte';
 	import ButtonPreview from '../components/Builder/button-preview.svelte';
 	import WelcomeField from '../components/Builder/welcome-field.svelte';
 	import FormField from '../components/FormField/form-field.svelte';
@@ -19,8 +17,8 @@
 	let description = $state('');
 
 	$effect(() => {
-		console.log($state.snapshot(fields))
-	})
+		console.log($state.snapshot(fields));
+	});
 </script>
 
 <!-- panel elements -->
@@ -56,6 +54,16 @@
 				title: 'selection',
 				elements: [
 					{
+						id: FieldElementId.MULTI_SELECT,
+						icon: IconDown,
+						description: 'Multi Select'
+					},
+					{
+						id: FieldElementId.DROPDOWN,
+						icon: IconDown,
+						description: 'Dropdown'
+					},
+					{
 						id: FieldElementId.RADIO,
 						icon: IconRadio,
 						description: 'Yes / No'
@@ -64,29 +72,24 @@
 						id: FieldElementId.CHECKBOX,
 						icon: IconCheckbox,
 						description: 'Checkbox'
-					},
-					{
-						id: FieldElementId.DROPDOWN,
-						icon: IconDown,
-						description: 'Dropdown'
 					}
 				]
 			},
-			{
-				title: 'Other',
-				elements: [
-					{
-						id: FieldElementId.WELCOME,
-						icon: IconSlide,
-						description: 'Welcome Screen'
-					}
-				]
-			},
+			// {
+			// 	title: 'Other',
+			// 	elements: [
+			// 		{
+			// 			id: FieldElementId.WELCOME,
+			// 			icon: IconSlide,
+			// 			description: 'Welcome Screen'
+			// 		}
+			// 	]
+			// }
 		]}
 	/>
 
-	<div class="h-full w-full bg-[#f7f6f9] relative overflow-y-scroll flex items-center flex-col">
-		<div class="flex flex-col items-center justify-center gap-6 p-6 max-w-[1370px] w-full">
+	<div class="relative flex h-full w-full flex-col items-center overflow-y-scroll bg-[#f7f6f9]">
+		<div class="flex w-full max-w-[1370px] flex-col items-center justify-center gap-6 p-6">
 			<WelcomeField bind:title bind:description />
 
 			<!-- render fields -->
@@ -97,21 +100,22 @@
 					bind:type={field.type}
 					bind:required={field.required}
 					bind:description={field.description}
+					bind:placeholder={field.placeholder}
 				/>
 			{/each}
 		</div>
 
-			<ButtonPreview
-				onclick={() => {
-					const paylaod = {
-						title,
-						description,
-						fields
-					}
-					const encrypted = btoa(JSON.stringify(paylaod));
+		<ButtonPreview
+			onclick={() => {
+				const paylaod = {
+					title,
+					description,
+					fields
+				};
+				const encrypted = btoa(JSON.stringify(paylaod));
 
-					window.open(`/preview/${encodeURIComponent(encrypted)}`, '_blank');
-				}}
-			/>
+				window.open(`/preview/${encodeURIComponent(encrypted)}`, '_blank');
+			}}
+		/>
 	</div>
 </div>

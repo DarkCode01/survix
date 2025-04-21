@@ -23,14 +23,14 @@ export const ELEMENTS = [
 	},
 	{
 		value: FieldElementId.CHECKBOX,
-		text: 'Multiple Choice (Checkbox)'
+		text: 'Checkbox'
+	},
+	{
+		value: FieldElementId.MULTI_SELECT,
+		text: 'Multiple Select (Dropdown)'
 	},
 	{
 		value: FieldElementId.DROPDOWN,
 		text: 'Dropdown (Select)'
 	}
 ];
-
-// export const PLACEHOLDER_BY_FIELD_TYPE = {
-// 	[FieldElementId.SHORT_TEXT]: ''
-// }

@@ -1,15 +1,18 @@
-import type { FieldElementId } from './enums/element-id';
-import type { Field } from './types/field';
-import type { FieldOption } from './types/field-option';
+import { FieldElementId } from '../enums/element-id';
+import type { Field } from '../types/field';
+import type { FieldOption } from '../types/field-option';
 
 const defaultOption = '';
 export const fields: Array<Field> = $state([]);
+export const invalidField = $state({
+	status: false
+});
 
 export const addField = (type: FieldElementId) => {
 	fields.push({
 		name: `field_${Math.random() * 100}`,
 		options: [],
-		placeholder: '...',
+		placeholder: type === FieldElementId.CHECKBOX ? 'Checkbox default label' : '...',
 		description: '',
 		label: '...',
 		type,
@@ -19,8 +22,17 @@ export const addField = (type: FieldElementId) => {
 		disabled: false
 	});
 
+	updateIndexes();
 	console.log($state.snapshot(fields));
+
+
 };
+
+export const updateIndexes = () => {
+	fields.forEach((_field, index) => {
+		fields[index].index = index;
+	});
+}
 
 export const addOptionToField = (fieldIndex: number) => {
 	if (fields[fieldIndex]) {
@@ -51,6 +63,8 @@ export const updateOptionByIndex = ({
 
 export const removeField = (fieldIndex: number) => {
 	if (fields[fieldIndex]) fields.splice(fieldIndex, 1);
+
+	updateIndexes();
 };
 
 export const changeFieldType = (fieldIndex: number, type: FieldElementId) => {
@@ -68,3 +82,10 @@ export const addBulkValues = ({
 		fields[fieldIndex].options = values;
 	}
 };
+
+export const triggerShake = () => {
+	invalidField.status = false;
+	requestAnimationFrame(() => {
+		invalidField.status = true;
+	});
+}
