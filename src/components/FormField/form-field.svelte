@@ -28,7 +28,7 @@
 <div
 	class={[
 		'relative flex w-full flex-col group',
-		'rounded-lg border-2 border-[#e4e4e4] bg-white',
+		'rounded-lg hover:border  bg-white',
 		'hover:border-[#69aead] hover:shadow-md'
 	]}
 >
@@ -56,7 +56,7 @@
 					id="{fieldIndex}_description"
 					placeholder="Description (optional)"
 					bind:value={description}
-					className="text-lg italic"
+					className="text-lg italic font-light"
 				/>
 			</div>
 		</div>

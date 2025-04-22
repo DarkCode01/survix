@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { removeField } from '$lib/stores/store.svelte';
+	import { fields, removeField } from '$lib/stores/store.svelte';
 	import IconTrash from '~icons/mdi/trash-outline';
 
   interface Props extends Partial<HTMLDivElement> {
@@ -23,11 +23,15 @@
       >This field is required</label
     >
   </div>
-  <span class="text-lg">|</span>
-  <button
-    onclick={() => removeField(fieldIndex)}
-    class="cursor-pointer rounded-lg p-1 hover:bg-red-100"
-  >
-    <IconTrash style="font-size: 20px; color: red;" />
-  </button>
+  
+  {#if fields.length > 1}
+    <span class="text-lg">|</span>
+
+    <button
+      onclick={() => removeField(fieldIndex)}
+      class="cursor-pointer rounded-lg p-1 hover:bg-red-100"
+    >
+      <IconTrash style="font-size: 20px; color: red;" />
+    </button>
+  {/if}
 </div>

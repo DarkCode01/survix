@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Field } from '$lib/types/field';
+	import MessageError from '../../../Form/Messages/error.svelte';
 	import MultiSelectButton from './multi-select-button.svelte';
-	
 	
 	interface Props
 		extends Omit<
@@ -28,13 +28,24 @@
   }
 </script>
 
-<div class="flex flex-col gap-2">
-  {#each options as option, index (`${index}_${option}`)}
-    <MultiSelectButton
-      isSelected={selected.includes(option)}
-      order={index + 1}
-      value={option}
-      {onclick}
-    />
-  {/each}
+<div class={[
+  'flex flex-col gap-2 overflow-y-auto pb-2',
+  'max-h-[244px] border-b-2 border-b-[#d0e6e7]'
+]}>
+  <!-- <div class="absolute"> -->
+    {#each options as option, index (`${index}_${option}`)}
+      <MultiSelectButton
+        isSelected={selected.includes(option)}
+        order={index + 1}
+        value={option}
+        {onclick}
+      />
+    {/each}
+  <!-- </div> -->
 </div>
+
+{#if isInvalid}
+	<MessageError>
+    {message}
+	</MessageError>
+{/if}

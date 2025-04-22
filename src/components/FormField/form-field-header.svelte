@@ -36,6 +36,7 @@
 		id="{fieldIndex}_label"
 		bind:value={fieldLabel}
 		placeholder={fieldPlaceholder}
+		className="font-light"
 	/>
 	<button
 		class={[

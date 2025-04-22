@@ -13,12 +13,12 @@
   <Textarea
     bind:value={title}
     placeholder="..."
-    className="self-center text-center text-4xl"
+    className="self-center text-center text-4xl font-light"
   />
   
   <Textarea
     bind:value={description}
     placeholder="Description (optional)"
-    className="self-center text-center text-2xl italic text-[#777777]"
+    className="self-center text-center text-2xl italic text-[#777777] font-light"
   />
 </div>

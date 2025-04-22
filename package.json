@@ -45,8 +45,10 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-js": "^2.0.0",
+		"svelte-dnd-action": "^0.9.60",
 		"svelte-modals": "^2.0.1",
 		"svelte-tel-input": "^3.6.0",
+		"tippy.js": "^6.3.7",
 		"unplugin-icons": "^22.1.0"
 	}
 }

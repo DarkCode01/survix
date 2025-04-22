@@ -1,31 +1,23 @@
 <script lang="ts">
+	
+	import IconDown from '~icons/mdi/arrow-down-drop-circle-outline';
 	import IconCheckbox from '~icons/mdi/checkbox-outline';
-	import IconDown from '~icons/mdi/chevron-down';
 	import IconEmail from '~icons/mdi/email-outline';
+	import IconMultiSelect from '~icons/mdi/format-list-checks';
+	import IconFormat from '~icons/mdi/format-text';
 	import IconPhone from '~icons/mdi/phone-outline';
 	import IconRadio from '~icons/mdi/radiobox-blank';
 	import IconText from '~icons/mdi/text';
 
 	import { FieldElementId } from '$lib/enums/element-id';
 	import { fields } from '$lib/stores/store.svelte';
-	import ButtonPreview from '../components/Builder/button-preview.svelte';
-	import WelcomeField from '../components/Builder/welcome-field.svelte';
+	import Board from '../components/Builder/board.svelte';
+	import Sidebar from '../components/Builder/Sidebar/sidebar.svelte';
+	import TopBar from '../components/Builder/top-bar.svelte';
 	import FormField from '../components/FormField/form-field.svelte';
-	import Sidebar from '../components/layout/sidebar.svelte';
 
-	let title = $state('Form title');
+	let title = $state('Form title...');
 	let description = $state('');
-
-	const preview = () => {
-		const paylaod = {
-			title,
-			description,
-			fields
-		};	
-		const encrypted = btoa(JSON.stringify(paylaod));
-	
-		window.open(`/preview/${encodeURIComponent(encrypted)}`, '_blank');
-	}
 
 	$effect(() => {
 		console.log($state.snapshot(fields));
@@ -33,7 +25,7 @@
 </script>
 
 <!-- panel elements -->
-<div class="flex h-full">
+<div class="flex h-full bg-[#f7f6f9]">
 	<Sidebar
 		sections={[
 			{
@@ -41,7 +33,7 @@
 				elements: [
 					{
 						id: FieldElementId.SHORT_TEXT,
-						icon: IconText,
+						icon: IconFormat,
 						description: 'Short text'
 					},
 					{
@@ -66,7 +58,7 @@
 				elements: [
 					{
 						id: FieldElementId.MULTI_SELECT,
-						icon: IconDown,
+						icon: IconMultiSelect,
 						description: 'Multi Select'
 					},
 					{
@@ -99,23 +91,24 @@
 		]}
 	/>
 
-	<div class="relative flex h-full w-full flex-col items-center overflow-y-scroll bg-[#f7f6f9]">
-		<div class="flex w-full max-w-[1370px] flex-col items-center justify-center gap-6 p-6">
-			<WelcomeField bind:title bind:description />
+	<div class="relative flex h-full w-full flex-col items-center overflow-y-auto">
+		<Board>
+			<TopBar bind:title bind:description />
 
-			<!-- render fields -->
-			{#each fields as field (field.name)}
-				<FormField
-					{...field}
-					bind:label={field.label}
-					bind:type={field.type}
-					bind:required={field.required}
-					bind:description={field.description}
-					bind:placeholder={field.placeholder}
-				/>
-			{/each}
-		</div>
-
-		<ButtonPreview onclick={preview} />
+			<div
+				class="w-full flex flex-col gap-6"
+			>
+				{#each fields as field (field.name)}
+					<FormField
+						{...field}
+						bind:label={field.label}
+						bind:type={field.type}
+						bind:required={field.required}
+						bind:description={field.description}
+						bind:placeholder={field.placeholder}
+					/>
+				{/each}
+			</div>
+		</Board>
 	</div>
 </div>
