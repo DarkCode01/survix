@@ -111,4 +111,6 @@
 			</div>
 		</Board>
 	</div>
+
+	<!-- <Attributes /> -->
 </div>

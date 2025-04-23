@@ -1,0 +1,1 @@
+<hr class="w-full text-[#777777] rounded-lg border-1 my-4 px-6" />

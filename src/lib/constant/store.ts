@@ -8,7 +8,7 @@ export const DEFAULT_FIELD: Field = {
 	options: [],
 	placeholder: '...',
 	description: '',
-	label: '...',
+	label: 'Add the label here.',
 	type: FieldElementId.SHORT_TEXT,
 	index: 0,
 	required: false,

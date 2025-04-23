@@ -16,7 +16,7 @@ export const addField = (type: FieldElementId) => {
 		options: [],
 		placeholder: type === FieldElementId.CHECKBOX ? 'Checkbox default label' : '...',
 		description: '',
-		label: '...',
+		label: 'Add the label here.',
 		type,
 		index: fields.length,
 		required: false,

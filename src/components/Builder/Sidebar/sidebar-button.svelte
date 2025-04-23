@@ -12,13 +12,15 @@
 <button
   {onclick}
   class={[
-    'text-black font-light cursor-pointer hover:bg-[#4fb0ae5f]',
-    'col-span-1 h-[120px] rounded-lg bg-[#f0f7f7]',
-    'border hover:border-2 border-[#c1dddd] flex items-center',
-    'justify-center flex-col gap-1 hover:border-[#69aead]'
+    'text-black font-light cursor-pointer',
+    'col-span-2 rounded-lg',
+    'flex items-center hover:bg-[#f0f7f7]',
+    'hover:border-[#69aead] py-2 gap-2 px-2'
   ]}
 >
   <!-- svelte-ignore element_invalid_self_closing_tag -->
-  <CustomIcon style="font-size: 20px;" />
-  <h3 class="text-base">{text}</h3>
+  <div class="p-1 bg-[#4fb0ae5f] rounded-lg">
+    <CustomIcon style="font-size: 20px; color: #3D3D3D;" />
+  </div>
+  <h3 class="text-base text-[#3D3D3D]">{text}</h3>
 </button>

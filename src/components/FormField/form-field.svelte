@@ -28,7 +28,7 @@
 <div
 	class={[
 		'relative flex w-full flex-col group',
-		'rounded-lg hover:border  bg-white',
+		'rounded-lg hover:border bg-white',
 		'hover:border-[#69aead] hover:shadow-md'
 	]}
 >
