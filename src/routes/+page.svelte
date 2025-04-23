@@ -5,7 +5,10 @@
 	import IconEmail from '~icons/mdi/email-outline';
 	import IconMultiSelect from '~icons/mdi/format-list-checks';
 	import IconFormat from '~icons/mdi/format-text';
+	import IconInformation from '~icons/mdi/information-slab-box-outline';
 	import IconPhone from '~icons/mdi/phone-outline';
+	import IconEnd from '~icons/mdi/presentation';
+	import IconWelcome from '~icons/mdi/presentation-play';
 	import IconRadio from '~icons/mdi/radiobox-blank';
 	import IconText from '~icons/mdi/text';
 
@@ -78,20 +81,30 @@
 					}
 				]
 			},
-			// {
-			// 	title: 'Other',
-			// 	elements: [
-			// 		{
-			// 			id: FieldElementId.WELCOME,
-			// 			icon: IconSlide,
-			// 			description: 'Welcome Screen'
-			// 		}
-			// 	]
-			// }
+			{
+				title: 'Other',
+				elements: [
+					{
+						id: FieldElementId.WELCOME_SCREEN,
+						icon: IconWelcome,
+						description: 'Welcome Screen'
+					},
+					{
+						id: FieldElementId.INFORMATION_SCREEN,
+						icon: IconInformation,
+						description: 'Information Screen'
+					},
+					{
+						id: FieldElementId.FINISH_SCREEN,
+						icon: IconEnd,
+						description: 'End Screen'
+					},
+				]
+			}
 		]}
 	/>
 
-	<div class="flex h-full w-full flex-col items-center overflow-y-auto">
+	<div class="flex h-full w-full flex-col items-center overflow-y-auto p-0">
 		<Board>
 			<TopBar bind:title bind:description />
 

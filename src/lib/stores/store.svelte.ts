@@ -13,7 +13,7 @@ export const addField = (type: FieldElementId) => {
 	fields.push({
 		id,
 		name: id,
-		options: [],
+		options: ['Other'],
 		placeholder: type === FieldElementId.CHECKBOX ? 'Checkbox default label' : '...',
 		description: '',
 		label: 'Add the label here.',

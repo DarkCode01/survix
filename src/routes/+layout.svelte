@@ -3,6 +3,7 @@
 	import '../app.css';
 	import Layout from '../components/layout/layout.svelte';
 	import Main from '../components/layout/main.svelte';
+	import Header from '../components/layout/header.svelte';
 	
 	let { children } = $props();
 </script>
@@ -21,7 +22,7 @@
 		</Modals>
 
 	<Main>
-		<!-- <Header /> -->
+		<Header />
 		{@render children()}
 	</Main>
 </Layout>
