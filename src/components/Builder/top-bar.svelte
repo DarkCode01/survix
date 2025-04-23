@@ -35,7 +35,10 @@
 	}
 </script>
 
-<div class="bg-white px-8 py-4 w-full rounded-lg">
+<div class={[
+  'bg-white px-8 py-4 w-full rounded-lg sticky top-6',
+  'z-[100] shadow-md'
+]}>
   <div class="w-full h-full flex items-center justify-between">
     <Textarea
       placeholder=""

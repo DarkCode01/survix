@@ -9,7 +9,6 @@
 
 <Layout>
 	<Modals>
-  <!-- shown when any modal is opened -->
 			<!-- svelte-ignore element_invalid_self_closing_tag -->
 			{#snippet backdrop({ close })}
 				<!-- svelte-ignore a11y_click_events_have_key_events -->

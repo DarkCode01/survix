@@ -7,6 +7,7 @@
 	import IconDown from '~icons/mdi/chevron-down';
 	import Select from '../Form/select.svelte';
 	import Textarea from '../Form/textarea.svelte';
+	import FormFieldIcon from './form-field-icon.svelte';
 
 	interface Props extends Partial<HTMLDivElement> {
 		displayBorder: boolean;
@@ -19,6 +20,8 @@
 
 	let { fieldIndex, displayBorder, onclick, fieldType, fieldLabel = $bindable(), fieldPlaceholder, onPreview}: Props =
 		$props();
+
+	
 </script>
 
 <div
@@ -29,7 +32,7 @@
 	]}
 >
 	<div class="flex items-center gap-2">
-		<span class="text-2xl text-[#3D3D3D]">Q{fieldIndex + 1}</span>
+		<FormFieldIcon {fieldType} />
 		<IconNext style="font-size: 15px; color: #3D3D3D;" />
 	</div>
 	<Textarea

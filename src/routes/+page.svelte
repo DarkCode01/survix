@@ -25,7 +25,7 @@
 </script>
 
 <!-- panel elements -->
-<div class="flex h-full bg-[#f7f6f9]">
+<div class="flex h-full bg-[#f7f6f9] overflow-hidden">
 	<Sidebar
 		sections={[
 			{
@@ -91,12 +91,12 @@
 		]}
 	/>
 
-	<div class="relative flex h-full w-full flex-col items-center overflow-y-auto">
+	<div class="flex h-full w-full flex-col items-center overflow-y-auto">
 		<Board>
 			<TopBar bind:title bind:description />
 
 			<div
-				class="w-full flex flex-col gap-6"
+				class="w-full h-full flex flex-col gap-6"
 			>
 				{#each fields as field (field.name)}
 					<FormField

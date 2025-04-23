@@ -14,7 +14,7 @@
   {onclick}
   class={[
     'flex items-center rounded-lg',
-    'p-4 hover:bg-[#e4e4e467]',
+    'p-4 hover:bg-[#4fb0ae5f]',
     'cursor-pointer'
   ]}
   use:tooltip={() => ({
